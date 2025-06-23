@@ -1,0 +1,13 @@
+diff --git a/Library/ConfigParser.cpp b/Library/ConfigParser.cpp
+index 606b694c..463512b0 100644
+--- a/Library/ConfigParser.cpp
++++ b/Library/ConfigParser.cpp
+@@ -908,6 +908,8 @@ bool ConfigParser::ParseVariables(std::wstring& str, const VariableType type, Me
+ 	size_t counter = 0ULL;
+ 	while ((end = result.find(L']', end)) != std::wstring::npos)
+ 	{
++		LogNoticeSF(m_Skin, m_CurrentSection->c_str(), L"Nested Parsing: %.4u : %s", counter, result.c_str());
++
+ 		// Restrict the number of variable replacements to a reseasonable amount
+ 		if (++counter >= maxReplacements)
+ 		{
